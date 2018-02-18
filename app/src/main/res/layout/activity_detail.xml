@@ -13,6 +13,12 @@
         android:paddingRight="16dp"
         >
 
+        <!-- I decide to have the image outside the ScrollView because it's more elegant.
+             A small view problem is with the landscape mode in ldpi devices, the ScrollView
+             area is too small, I think this is not a problem because the ldpi devices are the 0.6% of the android market
+             as mention in https://developer.android.com/about/dashboards/index.html
+             Section Screen sizes and densities
+        -->
         <ImageView
             android:id="@+id/image_iv"
             android:layout_width="match_parent"
