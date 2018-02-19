@@ -3,7 +3,6 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,20 +18,20 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    private static TextView mOrigin_tv = null;
-    private static TextView mAlso_known_tv = null;
-    private static TextView mIngredients_tv = null;
-    private static TextView mDescription_tv = null;
+    private static TextView mOriginTextView = null;
+    private static TextView mAlsoKnownTextView = null;
+    private static TextView mIngredientsTextView = null;
+    private static TextView mDescriptionTextView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        mOrigin_tv = (TextView) findViewById(R.id.origin_tv);
-        mAlso_known_tv = (TextView) findViewById(R.id.also_known_tv);
-        mIngredients_tv = (TextView) findViewById(R.id.ingredients_tv);
-        mDescription_tv = (TextView) findViewById(R.id.description_tv);
+        mOriginTextView = (TextView) findViewById(R.id.origin_tv);
+        mAlsoKnownTextView = (TextView) findViewById(R.id.also_known_tv);
+        mIngredientsTextView = (TextView) findViewById(R.id.ingredients_tv);
+        mDescriptionTextView = (TextView) findViewById(R.id.description_tv);
 
         ImageView ingredientsIv = findViewById(R.id.image_iv);
 
@@ -75,11 +74,16 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * A method we wrote for convenience. This method will take a sandwich object as input
+     * and use that object's data to populates the UI.
+     * @param sandwich The Sandwich data
+     */
     private void populateUI(Sandwich sandwich) {
-        mDescription_tv.setText(sandwich.getDescription());
+        mDescriptionTextView.setText(sandwich.getDescription());
 
-        /* set the Origin to N/A (not available) if the PlaceOfOrigin is null */
-        mOrigin_tv.setText(sandwich.getPlaceOfOrigin().isEmpty() ? getString(R.string.not_available) : sandwich.getPlaceOfOrigin());
+        /* set the Origin to N/A (not available) if the PlaceOfOrigin is empty */
+        mOriginTextView.setText(sandwich.getPlaceOfOrigin().isEmpty() ? getString(R.string.not_available) : sandwich.getPlaceOfOrigin());
 
         /*
             The sandwich.getAlsoKnownAs() returns a list of Names,
@@ -91,15 +95,15 @@ public class DetailActivity extends AppCompatActivity {
             for (String alsoKnow : sandwich.getAlsoKnownAs()) {
                 if (addNewLine) {
                     /* Append a new line */
-                    mAlso_known_tv.append(getString(R.string.new_line));
+                    mAlsoKnownTextView.append(getString(R.string.new_line));
                 } else {
                     addNewLine = true;
                 }
-                mAlso_known_tv.append(alsoKnow);
+                mAlsoKnownTextView.append(alsoKnow);
             }
         } else {
             // set the Also Know to N/A (not available) if there is not other knowing names
-            mAlso_known_tv.append(getString(R.string.not_available));
+            mAlsoKnownTextView.append(getString(R.string.not_available));
         }
 
         /*
@@ -111,12 +115,12 @@ public class DetailActivity extends AppCompatActivity {
         for (String alsoKnow: sandwich.getIngredients()) {
             if (addNewLine) {
                 /* Append a new line */
-                mIngredients_tv.append(getString(R.string.new_line));
+                mIngredientsTextView.append(getString(R.string.new_line));
             } else
             {
                 addNewLine = true;
             }
-            mIngredients_tv.append(alsoKnow);
+            mIngredientsTextView.append(alsoKnow);
         }
 
     }

@@ -5,33 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.udacity.sandwichclub.DetailActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        >
-
-        <!-- I decide to have the image outside the ScrollView because it's more elegant.
-             A small view problem is with the landscape mode in ldpi devices, the ScrollView
-             area is too small, I think this is not a problem because the ldpi devices are the 0.6% of the android market
-             as mention in https://developer.android.com/about/dashboards/index.html
-             Section Screen sizes and densities
-        -->
-        <ImageView
-            android:id="@+id/image_iv"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/sandwich_picture_content_description"
-            android:scaleType="centerCrop" />
-
         <ScrollView
+            android:id="@+id/scroller_sv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             >
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -39,6 +18,16 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 >
+
+                <ImageView
+                    android:id="@+id/image_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/sandwich_picture_content_description"
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +76,5 @@
             </LinearLayout>
 
         </ScrollView>
-
-    </LinearLayout>
 
 </FrameLayout>

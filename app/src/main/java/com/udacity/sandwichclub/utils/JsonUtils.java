@@ -13,6 +13,13 @@ import java.util.List;
 
 public class JsonUtils {
 
+    /**
+     * This method will take a json string as input and use that
+     * json data to build a Sandwich object
+     * @param json The Sandwich data in json format as string
+     * @return The Sandwich object
+     * @throws JSONException
+     */
     public static Sandwich parseSandwichJson(String json) throws JSONException {
         Log.d("parseSandwichJson", json);
 
@@ -26,14 +33,14 @@ public class JsonUtils {
         List<String> listAlsoKnownAs = new ArrayList<String>();
         JSONArray arrAlsoKnownAs = sandwichName.getJSONArray("alsoKnownAs");
         for (int i=0; i<arrAlsoKnownAs.length(); i++) {
-            listAlsoKnownAs.add(arrAlsoKnownAs.getString(i));
+            listAlsoKnownAs.add(arrAlsoKnownAs.optString(i));
         }
 
         /* ArrayList to hold the ingredients Strings*/
         List<String> listIngredients = new ArrayList<String>();
         JSONArray arrIngredients = sandwichData.getJSONArray("ingredients");
         for (int i=0; i<arrIngredients.length(); i++) {
-            listIngredients.add(arrIngredients.getString(i));
+            listIngredients.add(arrIngredients.optString(i));
         }
 
         /* Build the sandwich object */
