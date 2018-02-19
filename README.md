@@ -34,12 +34,12 @@ produces a Sandwich Object that can be used to populate the UI that you designed
 
 ## Feb 20, 2018 - Fix, Refactor
 **Fixing Core Functionality**
-- all the views are wrapped with the <ScrollView>
+- all the views are wrapped with the **ScrollView**
 
 **Fixing Suggestions**
 - In the class DetailActivity the names of the member variables have been refactored to meet the lowerCamelCase format, as mentioned in [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
 
-- In the <ScrollView> an id was added, so that Android will retain the scroll position on configuration changes.
+- In the **ScrollView** an id was added, so that Android will retain the scroll position on configuration changes.
 
 - comments were added to the methods
   * populateUI(Sandwich sandwich)
