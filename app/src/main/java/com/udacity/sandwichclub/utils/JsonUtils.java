@@ -45,11 +45,11 @@ public class JsonUtils {
 
         /* Build the sandwich object */
         Sandwich sandwich = new Sandwich(
-                sandwichName.getString("mainName"),
+                sandwichName.optString("mainName"),
                 listAlsoKnownAs,
-                sandwichData.getString("placeOfOrigin"),
-                sandwichData.getString("description"),
-                sandwichData.getString("image"),
+                sandwichData.optString("placeOfOrigin"),
+                sandwichData.optString("description"),
+                sandwichData.optString("image"),
                 listIngredients
         );
 

@@ -32,6 +32,14 @@ Design the layout for the detail activity so the different elements
 display in a sensible way. Implement the JSON parsing in JsonUtils so it
 produces a Sandwich Object that can be used to populate the UI that you designed.
 
+## Feb 21, 2018 - Fix, Refactor
+**Fixing Suggestions**
+
+- in the class, parseSandwichJson replaced **all** the getString functions with optString
+- from the **activity_detail.xml** the unnecessary FrameLayout was removed, ScrollView became the root layout element.
+- **DetailActivity.java** refactoring the code for joining strings with a new line using the **TextUtils.join**
+- **strings.xml** new_line string was removed and replace inline in code with the \n, since there is no need to be localized
+
 ## Feb 20, 2018 - Fix, Refactor
 **Fixing Core Functionality**
 - all the views are wrapped with the **ScrollView**

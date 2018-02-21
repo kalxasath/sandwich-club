@@ -2,7 +2,6 @@
     <string name="app_name">Sandwich Club</string>
 
     <string name="not_available">N/A</string>
-    <string name="new_line">\n</string>
 
     <!-- Detail Activity-->
     <string name="detail_also_known_as_label">Also known as:</string>

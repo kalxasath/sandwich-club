@@ -2,6 +2,15 @@
 *.apk
 *.ap_
 
+#my documentations
+.docs
+
+#my api keys
+.api_keys
+
+#added from Android Studio .gitignore
+.DS_Store
+
 # Files for the ART/Dalvik VM
 *.dex
 

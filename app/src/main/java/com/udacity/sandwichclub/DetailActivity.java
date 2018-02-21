@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,40 +89,21 @@ public class DetailActivity extends AppCompatActivity {
         /*
             The sandwich.getAlsoKnownAs() returns a list of Names,
             if the list has more than one item an newline is added
-            to every item after the 1st item
+            between items
          */
-        boolean addNewLine = false;
         if (sandwich.getAlsoKnownAs().size() > 0) {
-            for (String alsoKnow : sandwich.getAlsoKnownAs()) {
-                if (addNewLine) {
-                    /* Append a new line */
-                    mAlsoKnownTextView.append(getString(R.string.new_line));
-                } else {
-                    addNewLine = true;
-                }
-                mAlsoKnownTextView.append(alsoKnow);
-            }
+            mAlsoKnownTextView.setText(TextUtils.join("\n", sandwich.getAlsoKnownAs()));
         } else {
             // set the Also Know to N/A (not available) if there is not other knowing names
-            mAlsoKnownTextView.append(getString(R.string.not_available));
+            mAlsoKnownTextView.setText(getString(R.string.not_available));
         }
 
         /*
             The sandwich.getIngredients() returns a list of Ingredients,
             if the list has more than one item an newline is added
-            to every item after the 1st item
+            between items
          */
-        addNewLine = false;
-        for (String alsoKnow: sandwich.getIngredients()) {
-            if (addNewLine) {
-                /* Append a new line */
-                mIngredientsTextView.append(getString(R.string.new_line));
-            } else
-            {
-                addNewLine = true;
-            }
-            mIngredientsTextView.append(alsoKnow);
-        }
+        mIngredientsTextView.setText(TextUtils.join("\n", sandwich.getIngredients()));
 
     }
 }
