@@ -19,10 +19,11 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    private static TextView mOriginTextView = null;
-    private static TextView mAlsoKnownTextView = null;
-    private static TextView mIngredientsTextView = null;
-    private static TextView mDescriptionTextView = null;
+    private TextView mOriginTextView = null;
+    private TextView mAlsoKnownTextView = null;
+    private TextView mIngredientsTextView = null;
+    
+    private TextView mDescriptionTextView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
